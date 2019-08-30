@@ -1,0 +1,45 @@
+<form [formGroup] ="studentForm">
+
+    <input
+        placeholder="Nom de l'étudiant...."
+        formControlName ="nom"
+    >
+
+    <div class="alert" *ngIf="nom.touched && nom.errors">
+        votre saisie est invalide!
+    </div>
+
+    <input
+        placeholder="Prenom..."
+        formControlName="prenom"
+    >
+    <div class="alert" *ngIf="prenom.touched && prenom.errors">
+            votre saisie est invalide!
+    </div>
+
+    <label> Adresse complète </label>
+    <textarea
+        placeholder="adresse complète"
+        formControlName="adresse"
+    >
+        
+    </textarea>
+
+    <div class="alert" *ngIf="adresse.touched && adresse.errors">
+            votre saisie est invalide!
+    </div>
+
+    <button 
+        type ="submit"
+        [disabled] ="studentForm.invalid"
+        (click)="add()"
+    >
+        Valider
+    </button>
+
+
+        {{studentForm.value | json }}
+
+   
+
+</form>
